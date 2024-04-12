@@ -1,0 +1,121 @@
+html{
+    background: whitesmoke;
+}
+
+#page-container{
+    left: 0;
+    margin: 0 auto;
+    padding: 0;
+    position: absolute;
+}
+#content-wrapper{
+    position: relative;
+}
+
+
+/* Footer */
+
+#footer{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin-top: auto;
+    background-color: #0c0c0c;
+    padding: 20px 0;
+    color: #fff;
+    font-size: 14px;
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.link {
+    color: #55a3a3;
+    text-decoration: none; /* Remove o sublinhado padrão */
+    transition: color 0.3s; /* Adiciona uma transição suave para a mudança de cor */
+}
+
+.link:hover {
+    color: #1b1b1b; /* Define a nova cor do link quando o mouse passa sobre ele */
+}
+
+.linkh {
+    color: #55a3a3;
+    text-decoration: none; /* Remove o sublinhado padrão */
+    transition: color 0.3s; /* Adiciona uma transição suave para a mudança de cor */
+}
+
+.linkh:hover {
+    color: #1b1b1b; /* Define a nova cor do link quando o mouse passa sobre ele */
+}
+
+
+.container>div {
+    flex: 1;
+    margin: 0 0px;
+}
+
+.links ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.links ul li {
+    margin-bottom: 10px;
+}
+
+.links a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.contato p {
+    margin: 5px 0;
+    text-align: center;
+}
+
+.social ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.social ul li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.social a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.legal {
+    margin-top: 20px;
+}
+
+.legal p {
+    color: #fff;
+    text-align: center;
+}
+
+.legal a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Shape */
+
+#triangle {
+    height: 0;
+    width: 0;
+    border-left: 100px solid #ff4136;
+    border-right: 100px solid transparent;
+    border-bottom: 100px solid transparent;
+    border-top: 100px solid transparent;
+  }
+  
