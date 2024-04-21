@@ -2,3 +2,5 @@ flask_wtf
 flask
 python-dotenv
 requests
+flask-sqlalchemy
+flask-migrate

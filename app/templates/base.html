@@ -1,6 +1,10 @@
 <!doctype html>
 <html>
     <head>
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/base.css') }}">
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='assets/fontawesome/css/brands.css') }}">
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='assets/fontawesome/css/fontawesome.css') }}">
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='assets/fontawesome/css/solid.css') }}">        
         {% if title %}
         <title>{{ title }} - Profile</title>
         {% else %}
@@ -10,8 +14,8 @@
     <body>
         <div>
             Profile:
-            <a href="/index">Home</a>
-            <a href="/login">Login</a>
+            <a href="{{ url_for('index') }}">Home</a>
+            <a href="{{ url_for('login') }}">Login</a>
         </div>
         <hr>
         {% with messages = get_flashed_messages() %}
@@ -25,5 +29,37 @@
         {% endwith %}
         {% block content %}
         {% endblock %}
+        <footer>
+            <div class="container">
+                <div class="links">
+                    <h3>Links Úteis</h3>
+                    <ul>
+                        <li><a href="#inicio">Início</a></li>
+                        <li><a href="#sobre">Sobre nós</a></li>
+                    </ul>
+                </div>
+                <div class="contato">
+                    <h3>Contato</h3>
+                    <p>R. do Príncipe, 526 - Boa Vista, Recife - PE - 50050-900</p>
+                    <p><strong>Email:</strong> <a
+                            href="mailto:educalivrosbiblioteca@gmail.com">educalivrosbiblioteca@gmail.com</a></p>
+                    <!--Protocolo Mailto-->
+                    <p><strong>Telefone:</strong> (81) 91234-5678</p>
+                </div>
+                <div class="social">
+                    <h3>Siga-nos</h3>
+                    <ul>
+                        <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa-brands fa-linkedin"></i></a></li>
+                        <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="legal">
+                <p>&copy; 2024 EducaLivros. Todos os direitos reservados.</p>
+                <a href="politicaDePrivacidade.html">Política de
+                    Privacidade</a> | <a href="termosDeserviço.html">Termos de Serviço</a>
+            </div>
+        </footer>
     </body>
 </html>
