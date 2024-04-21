@@ -4,3 +4,4 @@ python-dotenv
 requests
 flask-sqlalchemy
 flask-migrate
+bootstrap-flask
