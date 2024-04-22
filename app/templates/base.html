@@ -1,6 +1,7 @@
 <!doctype html>
 <html>
     <head>
+        <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/css/bootstrap.css') }}">
         <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/base.css') }}">
         <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='assets/fontawesome/css/brands.css') }}">
         <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='assets/fontawesome/css/fontawesome.css') }}">
@@ -12,12 +13,38 @@
         {% endif %}
     </head>
     <body>
-        <div>
-            Profile:
-            <a href="{{ url_for('index') }}">Home</a>
-            <a href="{{ url_for('login') }}">Login</a>
-        </div>
-        <hr>
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+            <div class="container">
+              <a class="navbar-brand" href="#">MyProfile</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{{ url_for('index') }}">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('login') }}">Login</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Conteudo
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#">PBB</a></li>
+                      <li><a class="dropdown-item" href="#">Revisão de literatura</a></li>
+                      <li><a class="dropdown-item" href="#">Aprendizagem de Máquina</a></li>
+                    </ul>
+                  </li>
+                </ul>
+                <form class="d-flex" role="search">
+                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+              </div>
+            </div>
+          </nav>
         {% with messages = get_flashed_messages() %}
         {% if messages %}
         <ul>
@@ -34,32 +61,27 @@
                 <div class="links">
                     <h3>Links Úteis</h3>
                     <ul>
-                        <li><a href="#inicio">Início</a></li>
-                        <li><a href="#sobre">Sobre nós</a></li>
+                        <li><a href="{{ url_for('index') }}">Início</a></li>
+                        <li><a href="#sobre">Sobre mim</a></li>
                     </ul>
                 </div>
                 <div class="contato">
                     <h3>Contato</h3>
-                    <p>R. do Príncipe, 526 - Boa Vista, Recife - PE - 50050-900</p>
                     <p><strong>Email:</strong> <a
-                            href="mailto:educalivrosbiblioteca@gmail.com">educalivrosbiblioteca@gmail.com</a></p>
+                            href="mailto:educalivrosbiblioteca@gmail.com">joao.00000845222@unicap.br</a></p>
                     <!--Protocolo Mailto-->
-                    <p><strong>Telefone:</strong> (81) 91234-5678</p>
+                    <p><strong>Telefone:</strong> (81) 99684-5391</p>
                 </div>
                 <div class="social">
-                    <h3>Siga-nos</h3>
+                    <h3>Siga-me</h3>
                     <ul>
-                        <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
                         <li><a href="#"><i class="fa-brands fa-linkedin"></i></a></li>
                         <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
                     </ul>
                 </div>
             </div>
-            <div class="legal">
-                <p>&copy; 2024 EducaLivros. Todos os direitos reservados.</p>
-                <a href="politicaDePrivacidade.html">Política de
-                    Privacidade</a> | <a href="termosDeserviço.html">Termos de Serviço</a>
-            </div>
+            <script src="{{ url_for('static',filename='bootstrap/js/bootstrap.bundle.min.js') }}"></script>
         </footer>
     </body>
 </html>
