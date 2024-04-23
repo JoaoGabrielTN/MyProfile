@@ -1,5 +1,5 @@
 {
     "rewrites": [
-      { "source": "/(.*)", "destination": "/prof" }
+      { "source": "/(.*)", "destination": "/app/__init__" }
     ]
   }
