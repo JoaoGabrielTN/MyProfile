@@ -1,87 +1,141 @@
 <!doctype html>
 <html>
-    <head>
-        <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/css/bootstrap.css') }}">
-        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/base.css') }}">
-        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='assets/fontawesome/css/brands.css') }}">
-        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='assets/fontawesome/css/fontawesome.css') }}">
-        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='assets/fontawesome/css/solid.css') }}">        
-        {% if title %}
-        <title>{{ title }} - Profile</title>
-        {% else %}
-        <title>Welcome to Profile</title>
-        {% endif %}
-    </head>
-    <body>
-        <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-            <div class="container">
-              <a class="navbar-brand" href="#">MyProfile</a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{{ url_for('index') }}">Home</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('login') }}">Login</a>
-                  </li>
-                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Conteudo
-                    </a>
-                    <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#">PBB</a></li>
-                      <li><a class="dropdown-item" href="#">Revisão de literatura</a></li>
-                      <li><a class="dropdown-item" href="#">Aprendizagem de Máquina</a></li>
-                    </ul>
-                  </li>
+
+<head>
+  <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/css/bootstrap.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='assets/fontawesome/css/brands.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='assets/fontawesome/css/fontawesome.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='assets/fontawesome/css/solid.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/base.css') }}">
+  {% if title %}
+  <title>{{ title }} - Profile</title>
+  {% else %}
+  <title>Welcome to Profile</title>
+  {% endif %}
+</head>
+
+<body>
+  <div class="main-wrapper">
+    <div class="top-wrapper">
+      <nav class="navbar navbar-expand-sm navbar-dark">
+        <div class="container">
+          <a class="navbar-brand" href="#">MyProfile</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{{ url_for('index') }}">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('login') }}">Login</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                  aria-expanded="false">
+                  Conteudo
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">PBB</a></li>
+                  <li><a class="dropdown-item" href="#">Revisão de literatura</a></li>
+                  <li><a class="dropdown-item" href="#">Aprendizagem de Máquina</a></li>
                 </ul>
-                <form class="d-flex" role="search">
-                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                  <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
-              </div>
-            </div>
-          </nav>
+              </li>
+            </ul>
+            <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <div class="middle-wrapper">
+      <aside id="header">
+        <section class="profile">
+          <img src="{{url_for('static', filename='assets/imagens/photo.jpeg')}}" alt="">
+          <h1>Joao Gabriel</h1>
+          <div>
+            <a href="">
+              <i class="fa-brands fa-github"></i>
+            </a>
+            <a href="">
+              <i class="fa-brands fa-twitter"></i>
+            </a>
+            <a href="">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="">
+              <i class="fa-brands fa-linkedin"></i>
+            </a>
+          </div>
+        </section>
+        {% block indexes%}
+        {% endblock %}
+      </aside>
+      <div class="main-content">
         {% with messages = get_flashed_messages() %}
         {% if messages %}
         <ul>
-            {% for message in messages %}
-            <li>{{ message }}</li>
-            {% endfor %}
+          {% for message in messages %}
+          <li>{{ message }}</li>
+          {% endfor %}
         </ul>
         {% endif %}
         {% endwith %}
         {% block content %}
         {% endblock %}
-        <footer>
-            <div class="container">
-                <div class="links">
-                    <h3>Links Úteis</h3>
-                    <ul>
-                        <li><a href="{{ url_for('index') }}">Início</a></li>
-                        <li><a href="#sobre">Sobre mim</a></li>
-                    </ul>
-                </div>
-                <div class="contato">
-                    <h3>Contato</h3>
-                    <p><strong>Email:</strong> <a
-                            href="mailto:educalivrosbiblioteca@gmail.com">joao.00000845222@unicap.br</a></p>
-                    <!--Protocolo Mailto-->
-                    <p><strong>Telefone:</strong> (81) 99684-5391</p>
-                </div>
-                <div class="social">
-                    <h3>Siga-me</h3>
-                    <ul>
-                        <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fa-brands fa-linkedin"></i></a></li>
-                        <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
-                    </ul>
-                </div>
-            </div>
-            <script src="{{ url_for('static',filename='bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-        </footer>
-    </body>
+      </div>
+    </div>
+    <div class="bottom-wrapper">
+      <footer>
+        <div class="container">
+          <div class="links">
+            <h3>Links Úteis</h3>
+            <ul>
+              <li><a href="{{ url_for('index') }}">Início</a></li>
+              <li><a href="#sobre">Sobre mim</a></li>
+            </ul>
+          </div>
+          <div class="contato">
+            <h3>Contato</h3>
+            <p><strong>Email:</strong> <a href="mailto:educalivrosbiblioteca@gmail.com">joao.00000845222@unicap.br</a>
+            </p>
+            <!--Protocolo Mailto-->
+            <p><strong>Telefone:</strong> (81) 99684-5391</p>
+          </div>
+          <div class="social">
+            <h3>Siga-me</h3>
+            <ul>
+              <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+              <li><a href="#"><i class="fa-brands fa-linkedin"></i></a></li>
+              <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+            </ul>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+  <script src="{{ url_for('static',filename='bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+</body>
+
 </html>
+
+<!--
+
+<div class="waveWrapper waveAnimation">
+  <div class="waveWrapperInner bgTop">
+    <div class="wave waveTop" style="background-image: url('http://front-end-noobs.com/jecko/img/wave-top.png')"></div>
+  </div>
+  <div class="waveWrapperInner bgMiddle">
+    <div class="wave waveMiddle" style="background-image: url('http://front-end-noobs.com/jecko/img/wave-mid.png')"></div>
+  </div>
+  <div class="waveWrapperInner bgBottom">
+    <div class="wave waveBottom" style="background-image: url('http://front-end-noobs.com/jecko/img/wave-bot.png')"></div>
+  </div>
+</div>
+
+-->

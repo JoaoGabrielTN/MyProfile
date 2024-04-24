@@ -2,6 +2,11 @@ from flask import render_template, flash, redirect, url_for
 from app import app 
 from app.forms import LoginForm
 
+
+@app.errorhandler(404)
+def not_found(e):
+    return render_template('errors/404.html')
+
 @app.route('/')
 @app.route('/index')
 def index():
@@ -27,3 +32,7 @@ def login():
             form.username.data, form.remember_me.data))
         return redirect(url_for('index'))
     return render_template('login.html', title='Sign In', form=form)
+
+@app.route('/water')
+def water():
+    return render_template('water.html')
