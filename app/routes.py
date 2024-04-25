@@ -36,3 +36,7 @@ def login():
 @app.route('/water')
 def water():
     return render_template('water.html')
+
+@app.route('/test')
+def test():
+    return render_template('test.html')

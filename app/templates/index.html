@@ -4,7 +4,7 @@
 <nav>
     <ul>
         <li><a href="{{url_for('index')}}">Home</a></li>
-        <li><a href="{{url_for('login')}}"></a>Login</li>
+        <li><a href="{{url_for('login')}}">Login</a></li>
     </ul>
 </nav>
 {% endblock %}
@@ -15,4 +15,17 @@
     <p>{{ post.author.username }} says: <b>{{ post.body }}</b></p>
 </div>
 {% endfor %}
+<article id="sobre">
+    <h2>Sobre mim</h2>
+    <p>
+        Olá, meu nome é João. Eu sou o melhor programdor do mundo, so que não &#128518;. Atualmente sou apenas
+        um
+        humilde (talvez não tão humilde) aluno da Universidade Católica de Pernambuco. Estou participando pela
+        segunda vez
+        do PIBIC (Programa Institucional de Bolsas de Iniciação Científica), com o plano de trabalho intitulado
+        "UM ESTUDO DE APRENDIZAGEM DE MÁQUINA APLICADA À DETECÇÃO DE ATAQUES DDOS EM VANETS". Espero que dessa
+        vez
+        eu consiga publicar um artigo &#128578;.
+    </p>
+</article>
 {% endblock %}

@@ -3,8 +3,10 @@
 
 <head>
   <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/css/bootstrap.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static',filename='css/water.css')}}">
   <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='assets/fontawesome/css/brands.css') }}">
-  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='assets/fontawesome/css/fontawesome.css') }}">
+  <link rel="stylesheet" type="text/css"
+    href="{{ url_for('static',filename='assets/fontawesome/css/fontawesome.css') }}">
   <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='assets/fontawesome/css/solid.css') }}">
   <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/base.css') }}">
   {% if title %}
@@ -54,40 +56,54 @@
       </nav>
     </div>
     <div class="middle-wrapper">
-      <aside id="header">
-        <section class="profile">
-          <img src="{{url_for('static', filename='assets/imagens/photo.jpeg')}}" alt="">
-          <h1>Joao Gabriel</h1>
-          <div>
-            <a href="">
-              <i class="fa-brands fa-github"></i>
-            </a>
-            <a href="">
-              <i class="fa-brands fa-twitter"></i>
-            </a>
-            <a href="">
-              <i class="fa-brands fa-instagram"></i>
-            </a>
-            <a href="">
-              <i class="fa-brands fa-linkedin"></i>
-            </a>
+      <div class="main-background">
+        <div class="waveWrapper waveAnimation">
+          <div class="waveWrapperInner bgTop">
+            <div class="wave waveTop" style="background-image: url('http://front-end-noobs.com/jecko/img/wave-top.png')">
+            </div>
           </div>
-        </section>
-        {% block indexes%}
-        {% endblock %}
-      </aside>
-      <div class="main-content">
-        {% with messages = get_flashed_messages() %}
-        {% if messages %}
-        <ul>
-          {% for message in messages %}
-          <li>{{ message }}</li>
-          {% endfor %}
-        </ul>
-        {% endif %}
-        {% endwith %}
-        {% block content %}
-        {% endblock %}
+          <div class="waveWrapperInner bgMiddle">
+            <div class="wave waveMiddle" style="background-image: url('http://front-end-noobs.com/jecko/img/wave-mid.png')">
+            </div>
+          </div>
+          <div class="waveWrapperInner bgBottom">
+            <div class="wave waveBottom" style="background-image: url('http://front-end-noobs.com/jecko/img/wave-bot.png')">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="main-container">
+        <div class="main-content">
+          {% with messages = get_flashed_messages() %}
+          {% if messages %}
+          <ul>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+          </ul>
+          {% endif %}
+          {% endwith %}
+          {% block content %}
+          {% endblock %}
+        </div>
+        <aside class="sticky">
+          <section>
+            <div class="social acw">
+              <nav>
+                <ul>
+                  <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+                  <li><a href="#"><i class="fa-brands fa-linkedin"></i></a></li>
+                  <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                  <li><a href="#"><i class="fa-brands fa-github"></i></a></li>
+                </ul>
+              </nav>
+            </div>
+            <div class="menu">
+              {% block indexes%}
+              {% endblock %}
+            </div>
+          </section>
+        </aside>
       </div>
     </div>
     <div class="bottom-wrapper">
@@ -107,12 +123,13 @@
             <!--Protocolo Mailto-->
             <p><strong>Telefone:</strong> (81) 99684-5391</p>
           </div>
-          <div class="social">
+          <div class="social acb">
             <h3>Siga-me</h3>
             <ul>
               <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
               <li><a href="#"><i class="fa-brands fa-linkedin"></i></a></li>
               <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+              <li><a href="#"><i class="fa-brands fa-github"></i></a></li>
             </ul>
           </div>
         </div>
