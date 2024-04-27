@@ -1,14 +1,14 @@
 from flask import render_template, flash, redirect, url_for
-from app import app 
-from app.forms import LoginForm
+from api.index import app 
+from api.forms import LoginForm
 
 
 @app.errorhandler(404)
 def not_found(e):
     return render_template('errors/404.html')
 
-@app.route('/')
-@app.route('/index')
+@app.route('/', methods=['GET'])
+@app.route('/index', methods=['GET'])
 def index():
     user = {'username': 'João'}
     posts = [
@@ -33,10 +33,4 @@ def login():
         return redirect(url_for('index'))
     return render_template('login.html', title='Sign In', form=form)
 
-@app.route('/water')
-def water():
-    return render_template('water.html')
 
-@app.route('/test')
-def test():
-    return render_template('test.html')
